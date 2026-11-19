@@ -1,8 +1,9 @@
+
 const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 7000;
+const PORT = process.env.PORT || 7000;
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -12,5 +13,5 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log("MADAM JI ❤️");
-    console.log(`Website running at http://localhost:${PORT}`);
+    console.log(`Website running on port ${PORT}`);
 });
