@@ -1,0 +1,13 @@
+
+{
+  "name": "madam-ji",
+  "version": "1.0.0",
+  "description": "A special message for Madam Ji",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

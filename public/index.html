@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Madam Ji ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ffb6c1,#ff4f81,#8e244d);
+    color: white;
+    text-align: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 390px;
+    padding: 30px 22px;
+    border-radius: 25px;
+    background: #ffffff30;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px #6b173c66;
+}
+
+.heart {
+    font-size: 55px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    text-align: center;
+    margin: 18px 0;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #ff1744;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#message {
+    display: none;
+    font-size: 21px;
+    line-height: 1.7;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<div class="card">
+
+<div class="heart">❤️</div>
+<h1>A Little Surprise</h1>
+<p>Someone has a special message for you...</p>
+
+<div id="entry">
+<input id="name" placeholder="Enter your name">
+<button onclick="startSurprise()">Open My Message ❤️</button>
+</div>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+function speak(text) {
+    return new Promise(resolve => {
+        const voice = new SpeechSynthesisUtterance(text);
+        voice.lang = "en-IN";
+        voice.rate = 0.9;
+        voice.pitch = 1.1;
+        voice.onend = resolve;
+        voice.onerror = resolve;
+        speechSynthesis.speak(voice);
+    });
+}
+
+async function startSurprise() {
+
+    const name = document.getElementById("name").value.trim();
+
+    if (name.toLowerCase() !== "madam ji") {
+        alert("Please enter the correct name ❤️");
+        return;
+    }
+
+    document.getElementById("entry").style.display = "none";
+
+    const message = document.getElementById("message");
+    message.style.display = "block";
+
+    message.innerHTML = "Hi Madam Ji! ❤️";
+    await speak("Hi Madam Ji!");
+
+    message.innerHTML = "I love you so much! ❤️";
+    await speak("I love you so much.");
+
+    message.innerHTML = "I was so lucky to get you in my life. 💗";
+    await speak("I was so lucky to get you in my life.");
+
+    message.innerHTML = "And now, here is your favourite song! 🎶";
+    await speak("And now, here is your favourite song.");
+
+    window.location.href =
+    "https://youtube.com/shorts/Mz52n7pBkwY?si=bqE9eeFXXi71a0Vw";
+}
+</script>
+
+</body>
+</html>
